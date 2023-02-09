@@ -1,0 +1,127 @@
+/******* Change Box Model ***************/
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.container {
+  position: relative;
+  text-align: center;
+}
+.delorean-img {
+  width: 95%;
+  height: 95%;
+  object-fit: cover;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+.box-over-img {
+  padding: 10px;
+}
+
+.box-over-img h2, 
+.box-over-img p {
+  text-align: left;
+}
+
+.img-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  padding: 10px;
+  max-width: 100%;
+  text-align: center;
+}
+
+.img-and-text > div {
+  padding: 20px 0;
+  font-size: 30px;
+}
+
+.img-container img{
+  max-width: 3em;
+  max-height: 3em;
+  bottom: 0;
+}
+
+div .img-background {
+  background-color: rgb(41, 192, 234);
+  width: auto;
+  height: 3.7em;
+  position: relative;
+  border: 2px solid rgb(99, 99, 99);
+}
+
+.box-over-img {
+background-color: rgb(255, 255, 255, 0.8);
+color : rgb(41, 192, 234);
+font-weight: 400;
+position: absolute;
+top: 8px;
+  left: 16px;
+  margin: 0;
+}
+
+.reviews-bullet-points li{
+  padding: 0.2em;
+  font-weight: 500;
+  padding-bottom: 15px;
+}
+
+.box-over-img h2,
+.box-over-img p {
+  margin: 0;
+}
+
+button {
+  background-color: rgb(41, 192, 234);
+  color: black;
+  border: none;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  font-weight: 700;
+  margin: 25px 5px 10px 5px; /* top | right | bottom | left */
+  cursor: pointer;
+}
+
+@media only screen and (min-width: 900px){
+  html {
+    background-image: url("../images/site/small_check.jpg");
+  }
+  
+  .flex-container {
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: row-reverse;
+    gap: 10px;
+  }
+ 
+  body {
+    background-color: rgb(255, 255, 255);
+    border: 5px solid rgb(41, 192, 234);
+    border-radius: 15px;
+    margin: 1em 6em;
+    padding: 1em;
+  }
+
+  .box-over-img {
+    padding-top: 30px;
+    height: 220px;
+    margin-left: 3em;
+  }
+
+  .delorean-img {
+    width: 85%;
+    height: 85%;
+  }
+
+}

@@ -14,3 +14,11 @@ node_modules
 
 # .DS_Store is only for Mac users
 **/.DS_Store
+
+README.md
+
+# the pnpm-lock.yaml file should not be uploaded to the git repo
+pnpm-lock.yaml
+
+# Dont upload .vscode folder
+.vscode
