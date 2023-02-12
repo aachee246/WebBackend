@@ -5,6 +5,10 @@
   box-sizing: border-box;
 }
 
+h1 {
+  padding-top: 20px;
+}
+
 html {
   font-family: Arial, Helvetica, sans-serif;
 }
@@ -93,6 +97,115 @@ button {
   cursor: pointer;
 }
 
+.inv-display{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 30px;
+  padding: 10px;
+  max-width: 100%;
+  text-align: center;
+}
+
+.classification-display{
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  gap: 10px;
+  max-width: 100%;
+  text-align: center;
+  border: 1px solid black;
+  border-radius: 5px;
+}
+
+.classification-display a {
+  text-decoration: none;
+  color: black;
+}
+
+.name-price{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+  max-width: 100%;
+  text-align: center;
+  font-size: 80%;
+}
+
+.classification-images{
+  gap: 10px;
+  text-align: center;
+  max-width: fit-content;
+  border-radius: 5px;
+}
+
+.vehicle-display{
+  display: grid;
+  gap: 10px;
+  padding: 10px;
+  max-width: 100%;
+  text-align: center;
+}
+
+.individual-vehicle-display{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  padding: 10px;
+  max-width: 100%;
+  text-align: center;
+  grid-template-areas: "image information";
+}
+
+.vehicle-image{
+  gap: 10px;
+  padding: 30px 10px 10px 10px;
+  width: 100%;
+  text-align: center;
+}
+
+.vehicle-image-container{
+  grid-area: image;
+}
+
+.vehicle-information{
+  grid-area: information;
+  gap: 10px;
+  padding: 10px;
+  max-width: 100%;
+  text-align: center;
+}
+
+.vehicle-information table {
+  border-collapse: collapse;
+  width: 100%;
+  text-align: left;
+}
+
+.vehicle-information table th{
+  padding: 10px;
+  font-weight: 400;
+}
+
+table span {
+  font-weight: 600;
+}
+
+tr:nth-child(even) {
+  background-color: rgb(239, 239, 239);
+}
+
+
+tr:nth-child(odd) {
+  background-color: white;
+}
+
+
+
+
+
+
 @media only screen and (min-width: 900px){
   html {
     background-image: url("../images/site/small_check.jpg");
@@ -124,4 +237,29 @@ button {
     height: 85%;
   }
 
+
+  
+
+}
+
+@media only screen and (max-width: 900px){
+  .inv-display{
+    grid-template-columns: 1fr;
+    place-items: center;
+  }
+
+  .classification-display{
+    width: 50%;
+    flex-direction: column;
+  }
+
+  .name-price{
+    gap: 0px;
+  }
+
+  .individual-vehicle-display{
+    grid-template-columns: 1fr;
+    grid-template-areas: "image" 
+                        "information";
+  }
 }

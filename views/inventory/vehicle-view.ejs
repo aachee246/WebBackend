@@ -1,0 +1,47 @@
+<% if (title) { %>
+   <h1><%= title %></h1>
+   <% } else {
+      res.redirect('/')
+   } %>
+   
+   <% if (message) { %>
+   <p class="notice"><%= message %></p>
+   <% } %>
+   
+   <% if(data.length > 0){ %>
+   <ul class="vehicle-display">
+      <%
+      <!-- // Note: Each element from the array must be in its own ejs block. 
+      // Combining more than one element will result in a parse error! -->
+      data.forEach(vehicle => { %>
+         <!-- TODO -->
+      <div class="individual-vehicle-display">
+         <div class="vehicle-image-container">
+            <img class="vehicle-image" src="<%= vehicle.inv_thumbnail %>" alt="Image of <%= vehicle.inv_make %> <%= vehicle.inv_model %> on CSE Motors" />
+         </div>
+         <div class="vehicle-information">
+            <h2>
+               <%= vehicle.inv_make %> <%= vehicle.inv_model %> Details
+            </h2>  
+            <table>
+               <tr>
+                  <th><span>Price: </span>$<%= new Intl.NumberFormat('en-US').format(vehicle.inv_price) %></th>
+               </tr>
+               <tr>
+                  <th><span>Description: </span><%= vehicle.inv_description %></th>
+               </tr>
+               <tr>
+                  <th><span>Color: </span><%= vehicle.inv_description %></th>
+               </tr>
+               <tr>
+                  <th><span>Miles: </span><%= vehicle.inv_description %></th>
+               </tr>
+            </table>
+         </div>
+         
+      </div>
+      <% }) %>
+   </ul>
+   <% } else { %>
+      <p class="notice">Sorry, no matching vehicles could be found.</p>
+   <% } %>

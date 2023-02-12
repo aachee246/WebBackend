@@ -12,5 +12,6 @@ const invController = require("../controllers/invController");
 // "/type/:classificationId" the route being watched for (note that the "inv" element of the route is missing, but it will be accounted for later).
 // invController.buildByClassification" indicates the the "buildByClassification" function within the "invController" will be used to fulfill the request sent by the route.
 router.get("/type/:classificationId", invController.buildByClassification);
+router.get("/detail/:vehicleId", invController.buildByVehicle);
 
 module.exports = router;
