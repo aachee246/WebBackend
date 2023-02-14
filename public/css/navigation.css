@@ -24,3 +24,22 @@ nav ul {
  nav li a:hover {
    background-color: #111;
  }
+
+ nav ul li {
+   float: left;
+ }
+ 
+ nav li a {
+   display: block;
+   color: white;
+   text-align: center;
+   padding: 14px 16px;
+   text-decoration: none;
+ }
+
+
+ @media only screen and (max-width: 500px){
+  nav li a {
+    font-size: 10px;
+  }
+}

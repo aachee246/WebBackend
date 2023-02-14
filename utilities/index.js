@@ -31,4 +31,34 @@ Util.getNav = async function (req, res, next) {
   return nav
 }
 
+Util.buildVehicle = function (data) {
+  var view = `<ul class="vehicle-display">
+  <div class="individual-vehicle-display">
+     <div class="vehicle-image-container">
+        <img class="vehicle-image" src="${data.inv_image}" alt="Image of ${data.inv_make} + ${data.inv_model} on CSE Motors" />
+     </div>
+     <div class="vehicle-information">
+        <h2>
+           ${data.inv_make} ${data.inv_model} Details
+        </h2>  
+        <table>
+           <tr>
+              <th><span>Price: </span> $${(data.inv_price).toLocaleString("en-US")}</th>
+           </tr>
+           <tr>
+              <th><span>Description: </span>${data.inv_description}</th>
+           </tr>
+           <tr>
+              <th><span>Color: </span>${data.inv_color}</th>
+           </tr>
+           <tr>
+              <th><span>Miles: </span>${(data.inv_miles).toLocaleString("en-US")}</th>
+           </tr>
+        </table>
+     </div>
+  </div>
+  </ul>`;
+  return view;
+} 
+
 module.exports = Util

@@ -36,8 +36,9 @@ invCont.buildByVehicle = async function (req, res, next) {
       title: vehicleName,
       nav, 
       message: null, 
-      data,
+      view: utilities.buildVehicle(data[0]),
    })
+   
 }
 
 module.exports = invCont;
