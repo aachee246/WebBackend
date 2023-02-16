@@ -201,7 +201,41 @@ tr:nth-child(odd) {
   background-color: white;
 }
 
+.login-form {
+  text-align: center;
+  padding: 20px;
+  margin: 0 auto;
+  max-width: 400px;
+  background-color: rgba(228, 228, 228, 0.8);
+  border-radius: 5px;
+  border: 1px solid rgb(99, 99, 99);
+}
 
+input[type=text], input[type=password] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+input[type=submit] {
+  background-color: #4b4b4b;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-decoration: none;
+  margin: 10px 5px;
+  cursor: pointer;
+}
+
+.login-title {
+  text-align: center;
+  font-size: 30px;
+  font-weight: 700;
+  padding: 10px;
+}
 
 
 

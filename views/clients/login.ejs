@@ -1,0 +1,18 @@
+<% if (title) { %>
+   <h1 class="login-title"><%= title %></h1>
+   <% } else {
+      res.redirect('/')
+   } %>
+   
+<% if (message) { %>
+   <p class="notice"><%= message %></p>
+<% } %>
+
+<form class="login-form" action="#" method="post">
+   <label for="client_username">Username</label>
+   <input type="text" name="client_username" class="login-username" required />
+   <label for="client_password">Password</label>
+   <input type="password" name="client_password" class="login-password" required />
+   <input type="submit" value="Log In">
+   <div>Don't have an account?<a href="/clients/register"> Sign up here!</a></div>
+</form>

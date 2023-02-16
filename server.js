@@ -33,6 +33,9 @@ app.get("/", baseController.buildHome)
 // *In short, any route that starts with "/inv" will then jump into the inventory-route.js file, to find the rest of the route in order to fulfill the request.
 app.use("/inv", require("./routes/inventory-route"))
 
+// client routes
+app.use("/client", require("./routes/account-route"))
+
 /* ***********************
  * Local Server Information
  * Values from .env (environment) file
