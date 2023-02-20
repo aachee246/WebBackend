@@ -201,7 +201,8 @@ tr:nth-child(odd) {
   background-color: white;
 }
 
-.login-form {
+.login-form, 
+.register-form {
   text-align: center;
   padding: 20px;
   margin: 0 auto;
@@ -211,7 +212,7 @@ tr:nth-child(odd) {
   border: 1px solid rgb(99, 99, 99);
 }
 
-input[type=text], input[type=password] {
+input[type=text], input[type=password], input[type=email] {
   width: 100%;
   padding: 12px 20px;
   margin: 8px 0;
@@ -230,7 +231,8 @@ input[type=submit] {
   cursor: pointer;
 }
 
-.login-title {
+.login-title,
+.register-title {
   text-align: center;
   font-size: 30px;
   font-weight: 700;

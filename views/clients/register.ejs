@@ -1,0 +1,25 @@
+<% if (title) { %>
+   <h1 class="register-title"><%= title %></h1>
+   <% } else {
+      res.redirect('/')
+   } %>
+   
+<% if (message) { %>
+   <p class="notice"><%= message %></p>
+<% } %>
+
+<% if (errors) { %>
+   <p class="notice"><%= errors %></p>
+<% } %>
+
+<form class="register-form" action="/client/register" method="post">
+   <label for="client_firstname">First Name</label>
+   <input type="text" name="client_firstname" class="register-first-name" required />
+   <label for="client_lastname">Last Name</label>
+   <input type="text" name="client_lastname" class="register-last-name" required />
+   <label for="client_email">Email</label>
+   <input type="email" name="client_email" class="register-email" required />
+   <label for="client_password">Password</label>
+   <input type="password" name="client_password" class="register-password" required />
+   <input type="submit" value="Register">
+</form>

@@ -10,6 +10,13 @@ const expressLayouts = require("express-ejs-layouts")
 const env = require("dotenv").config()
 const app = express()
 const baseController = require("./controllers/baseController")
+const bodyParser = require("body-parser")
+
+/* ***********************
+ * Middleware
+ *************************/
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({ extended: true })) // for parsing application/x-www-form-urlencoded
 
 /* ***********************
  * View Engine and Templates
@@ -35,6 +42,7 @@ app.use("/inv", require("./routes/inventory-route"))
 
 // client routes
 app.use("/client", require("./routes/account-route"))
+app.use("/clients", require("./routes/registration-route"))
 
 /* ***********************
  * Local Server Information
