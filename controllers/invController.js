@@ -45,7 +45,7 @@ invCont.registerClassification = async function (req, res) {
       let nav = await utilities.getNav()
       req.body = "";
      res.status(201).render("./inventory/management-view", {
-       title: "new classification",
+       title: "vehicle",
        nav,
        message: `Congratulations, you\'re registered ${classification_name} as a new classification of vehicle.`,
        errors: null,
@@ -89,8 +89,7 @@ invCont.registerVehicle = async function (req, res) {
        errors: null,
      })
    }
-   
- }
+}
 
 /* ****************************************
 *  Deliver add new vehicle view with form

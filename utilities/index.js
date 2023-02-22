@@ -59,7 +59,7 @@ Util.buildVehicle = function (data) {
   </div>
   </ul>`;
   return view;
-} 
+}
 
 Util.buildClassificationDropdown = async function () {
    const data = await invModel.getClassifications()

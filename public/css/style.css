@@ -214,6 +214,22 @@ tr:nth-child(odd) {
   border: 1px solid rgb(99, 99, 99);
 }
 
+.managment-links {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  padding: 20px;
+  margin: 0 auto;
+  max-width: 400px;
+  background-color: rgba(228, 228, 228, 0.8);
+  border-radius: 5px;
+  border: 1px solid rgb(99, 99, 99);
+}
+.managment-links a{
+  padding: 20px;
+  color: black;
+}
+
 select,
 input[type=text], input[type=password], input[type=email] {
   width: 100%;
@@ -235,11 +251,16 @@ input[type=submit] {
 }
 
 .login-title,
-.register-title {
+.register-title,
+.new-classification-title,
+.new-vehicle-title,
+.management-title {
   text-align: center;
   font-size: 30px;
   font-weight: 700;
   padding: 10px;
+  margin-bottom: 15px;
+  margin-top: 15px;
 }
 
 
