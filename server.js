@@ -39,6 +39,7 @@ app.get("/", baseController.buildHome)
 // "require("./routes/inventory-route")" is the command to bring the "inventory-route" file into the scope of the server.js file.
 // *In short, any route that starts with "/inv" will then jump into the inventory-route.js file, to find the rest of the route in order to fulfill the request.
 app.use("/inv", require("./routes/inventory-route"))
+app.use("/inv", require("./routes/add-classification-route"))
 
 // client routes
 app.use("/client", require("./routes/account-route"))

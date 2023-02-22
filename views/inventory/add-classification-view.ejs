@@ -1,0 +1,17 @@
+<% if (title) { %>
+   <h1><%= title %></h1>
+   <% } else {
+      res.redirect('/')
+   } %>
+   
+   <% if (message) { %>
+   <p class="notice"><%= message %></p>
+   <% } %>
+
+   <!-- TODO input cannot contain a space or special character of any kind -->
+   <form class="add-classification-form" action="#" method="post">
+      <label for="classification_name">Classification Name</label>
+      <div>*Name may NOT contain a space or special character of any kind</div>
+      <input type="text" name="classification_name" class="classification-name" required />
+      <input type="submit" value="Add Classification">
+   </form>

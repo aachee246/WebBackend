@@ -202,7 +202,9 @@ tr:nth-child(odd) {
 }
 
 .login-form, 
-.register-form {
+.register-form,
+.add-classification-form,
+.add-vehicle-form {
   text-align: center;
   padding: 20px;
   margin: 0 auto;
@@ -212,6 +214,7 @@ tr:nth-child(odd) {
   border: 1px solid rgb(99, 99, 99);
 }
 
+select,
 input[type=text], input[type=password], input[type=email] {
   width: 100%;
   padding: 12px 20px;

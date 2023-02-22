@@ -61,4 +61,14 @@ Util.buildVehicle = function (data) {
   return view;
 } 
 
+Util.buildClassificationDropdown = async function () {
+   const data = await invModel.getClassifications()
+   let dropdown = `<select name="classification_id" id="classification_id"><option>Choose One</option>`
+   data.rows.forEach((row) => {
+      dropdown += `<option value="${row.classification_id}">${row.classification_name}</option>`
+   })
+   dropdown += `</select>`
+   return dropdown;
+}
+
 module.exports = Util

@@ -3,6 +3,7 @@
 const express = require("express"); 
 // uses Express to create a new Router object. (using separate router files
 // for specific elemtnts of the application would keep the server.js file smaller)
+const util = require("../utilities");
 const router = new express.Router(); 
 //brings the inventory controller into this router documents scope to be used.
 const invController = require("../controllers/invController");
@@ -13,5 +14,8 @@ const invController = require("../controllers/invController");
 // invController.buildByClassification" indicates the the "buildByClassification" function within the "invController" will be used to fulfill the request sent by the route.
 router.get("/type/:classificationId", invController.buildByClassification);
 router.get("/detail/:vehicleId", invController.buildByVehicle);
+router.get("/management-view", invController.buildAddNew);
+router.post("/add-classification-view", invController.registerClassification);
+router.post("/add-vehicle-view", invController.registerVehicle);
 
 module.exports = router;
