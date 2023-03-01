@@ -72,6 +72,15 @@ top: 8px;
   margin: 0;
 }
 
+.password_reminder {
+  text-align: center;
+  padding: 5px;
+  font-size: 10px;
+  color:rgb(99, 99, 99);
+  font-style: italic;
+} 
+
+
 .reviews-bullet-points li{
   padding: 0.2em;
   font-weight: 500;

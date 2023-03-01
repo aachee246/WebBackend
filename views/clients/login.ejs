@@ -8,11 +8,20 @@
    <p class="notice"><%= message %></p>
 <% } %>
 
-<form class="login-form" action="#" method="post">
-   <label for="client_username">Username</label>
-   <input type="text" name="client_username" class="login-username" required />
+<% if (errors) { %>
+   <ul class="notice">
+  <% errors.array().forEach(error => { %>
+    <li><%= error.msg %></li>
+ <%  }) %>
+  </ul>
+ <% } %>
+
+<form class="login-form" id="loginForm" action="/client/login" method="post">
+   <label for="client_email">Email</label>
+   <input type="email" name="client_email" id="client_email" class="login-email" required value="<%= locals.client_email %>">
    <label for="client_password">Password</label>
-   <input type="password" name="client_password" class="login-password" required />
+   <div class="password_reminder">*passwords must be at least 12 characters and contain at least 1 number, 1 capital letter and 1 special character</div> 
+   <input type="password" id="client_password" name="client_password" class="login-password" required pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{12,}$">
    <input type="submit" value="Log In">
    <div>Don't have an account?<a href="/clients/register"> Sign up here!</a></div>
 </form>
