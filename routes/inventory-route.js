@@ -7,6 +7,8 @@ const util = require("../utilities");
 const router = new express.Router(); 
 //brings the inventory controller into this router documents scope to be used.
 const invController = require("../controllers/invController");
+const validate = require('../utilities/inventory-validation')
+
 
 // Route to build inventory by classification view
 // "get" indicates that the route will liste for the get method in the request
@@ -15,7 +17,19 @@ const invController = require("../controllers/invController");
 router.get("/type/:classificationId", invController.buildByClassification);
 router.get("/detail/:vehicleId", invController.buildByVehicle);
 router.get("/management-view", invController.buildAddNew);
-router.post("/add-classification-view", invController.registerClassification);
-router.post("/add-vehicle-view", invController.registerVehicle);
+// Process the add classification data
+router.post(
+   "/add-classification-view",
+   validate.newClassificationRules(),
+   validate.checkNewClassificationData,
+   invController.registerClassification
+ )
+ // Process the add classification data
+router.post(
+   "/add-vehicle-view",
+   validate.newVehicleRules(),
+   validate.checkNewVehicleData,
+   invController.registerVehicle
+ )
 
 module.exports = router;

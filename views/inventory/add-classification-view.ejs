@@ -8,10 +8,18 @@
    <p class="notice"><%= message %></p>
    <% } %>
 
+   <% if (errors) { %>
+      <ul class="notice">
+     <% errors.array().forEach(error => { %>
+       <li><%= error.msg %></li>
+    <%  }) %>
+     </ul>
+    <% } %>
+
    <!-- TODO input cannot contain a space or special character of any kind -->
-   <form class="add-classification-form" action="#" method="post">
+   <form class="add-classification-form" action="/inv/add-classification-view" method="post">
       <label for="classification_name">Classification Name</label>
       <div>*Name may NOT contain a space or special character of any kind</div>
-      <input type="text" id="classification_name" name="classification_name" class="classification-name" required pattern="^[a-zA-Z0-9]{2,10}$">
+      <input type="text" id="classification_name" name="classification_name" class="classification-name" required pattern="^[a-zA-Z0-9]{2,10}$" value="<%= locals.classification_name %>">
       <input type="submit" value="Add Classification">
    </form>

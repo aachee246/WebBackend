@@ -96,15 +96,17 @@ invCont.registerVehicle = async function (req, res) {
 **************************************** */
 invCont.addNewVehicle = async function (req, res, next) {
    let nav = await utilities.getNav()
+   const { classification_id } = req.body
 
-   const dropdown = await utilities.buildClassificationDropdown();
+   const dropdown = await utilities.buildClassificationDropdown(classification_id);
 
-   console.log(dropdown);
+   console.log("dropdown: " + dropdown);
 
    res.render("./inventory/add-vehicle-view", {
       title: "new vehicle",
       nav, 
       message: null, 
+      errors: null,
       dropdown,
    })
 }

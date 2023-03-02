@@ -61,13 +61,19 @@ Util.buildVehicle = function (data) {
   return view;
 }
 
-Util.buildClassificationDropdown = async function () {
+Util.buildClassificationDropdown = async function (classification_id = null) {
    const data = await invModel.getClassifications()
-   let dropdown = `<select name="classification_id" id="classiifcation_id"><option>Choose One</option>`
+   let dropdown = 
+      `<select name="classification_id" id="classification_id">`
+   dropdown += "<option>Choose One</option>"
    data.rows.forEach((row) => {
-      dropdown += `<option value="${row.classification_id}">${row.classification_name}</option>`
+         if (classification_id != null && row.classification_id == classification_id) {
+            dropdown += " selected "
+         }
+      dropdown += ">" + row.classification_name + "</option>"
    })
    dropdown += `</select>`
+   console.log("DROPDOWN: " + dropdown)
    return dropdown;
 }
 
