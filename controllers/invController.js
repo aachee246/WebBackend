@@ -100,8 +100,6 @@ invCont.addNewVehicle = async function (req, res, next) {
 
    const dropdown = await utilities.buildClassificationDropdown(classification_id);
 
-   console.log("dropdown: " + dropdown);
-
    res.render("./inventory/add-vehicle-view", {
       title: "new vehicle",
       nav, 
