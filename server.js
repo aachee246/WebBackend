@@ -36,7 +36,6 @@ app.get("/", baseController.buildHome)
 
 // Inventory routes
 app.use("/inv", require("./routes/inventory-route"))
-app.use("/inv", require("./routes/add-classification-route"))
 
 // client routes
 app.use("/client", require("./routes/account-route"))

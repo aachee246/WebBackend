@@ -31,7 +31,6 @@ invCont.buildRegisterClassification = async function (req, res, next) {
 /* ****************************************
  *  Process registration request
  **************************************** */
-// TODO should update the nav bar with the new classification witout neding to refresh the page
 invCont.registerClassification = async function (req, res) {
    
    const { classification_name } =
@@ -65,7 +64,6 @@ invCont.registerClassification = async function (req, res) {
 /* ****************************************
  *  Process registration request
  **************************************** */
-// TODO should update the nav bar with the new classification witout neding to refresh the page
 invCont.registerVehicle = async function (req, res) {
    
    const { classification_id, inv_make, inv_model, inv_year, inv_description, inv_image,  inv_thumbnail, inv_price, inv_miles, inv_color } = req.body
@@ -109,7 +107,6 @@ invCont.addNewVehicle = async function (req, res, next) {
    })
 }
 
-// TODO only get vehicles if here are vehicles to get
 invCont.buildByClassification = async function (req, res, next) {
    const classificationId = req.params.classificationId
    let data = await invModel.getVehiclesByClassificationId(classificationId)

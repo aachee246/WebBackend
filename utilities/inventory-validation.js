@@ -29,7 +29,7 @@ validate.newClassificationRules = () => {
       res.render("../views/inventory/add-classification-view", {
          errors, 
          message: null,
-         title: "Classification",
+         title: "new classification",
          nav,
          classification_name,
       })
@@ -47,21 +47,23 @@ validate.newVehicleRules = () => {
      // classification must be selected
       body("classification_id")
       .trim()
-      .notEmpty()
-      .withMessage("An existing classification must be selected."),
+      .isInt({
+         no_symbols: true
+      }) // must be an integer with no symbols
+      .withMessage("An existing classification must be selected."), // on error this message is sent.
 
      // make is required and must be string
       body("inv_make")
       .trim()
       .escape()
-      .isLength({ min: 1 })
+      .isLength({ min: 3 })
       .withMessage("Input the make of the vehicle."),
 
      // model is required and must be string
       body("inv_model")
       .trim()
       .escape()
-      .isLength({ min: 1 })
+      .isLength({ min: 3 })
       .withMessage("Input the model of the vehicle."),
 
      // valid year is required, must be numeric and 4 digits
@@ -75,7 +77,7 @@ validate.newVehicleRules = () => {
      // valid description is required, must be string, and be between 1 and 65 characters
       body("inv_description")
       .trim()
-      .isLength({ min: 1, max: 65 })
+      .isLength({ min: 20, max: 65 })
       .notEmpty()
       .withMessage("Input a description of the vehicle."),
 
@@ -127,7 +129,7 @@ validate.newVehicleRules = () => {
       res.render("../views/inventory/add-vehicle-view", {
          errors, 
          message: null,
-         title: "Vehicle",
+         title: "new vehicle",
          nav, 
          dropdown,
          classification_id,
