@@ -1,4 +1,7 @@
 const invModel = require("../models/inventory-model")
+const jwt = require("jsonwebtoken")
+
+require("dotenv").config()
 const Util = {}
 
 /* ************************
@@ -76,5 +79,32 @@ Util.buildClassificationDropdown = async function (classification_id = null) {
    dropdown += `</select>`
    return dropdown;
 }
+
+/* ****************************************
+ *  Authorize JWT Token
+ * ************************************ */
+Util.jwtAuth = (req, res, next) => {
+const token = req.cookies.jwt
+try {
+  const clientData = jwt.verify(token, process.env.ACCESS_TOKEN_SECRET)
+  req.clientData = clientData
+  next()
+} catch (error){
+  res.clearCookie("jwt", { httpOnly: true })
+  return res.status(403).redirect("/")
+}
+}
+
+/* ****************************************
+* Middleware to check token validity
+**************************************** */
+Util.checkJWTToken = (req, res, next) => {
+   jwt.verify(req.cookies.jwt, process.env.ACCESS_TOKEN_SECRET, function (err) {
+     if (err) {
+       return res.status(403).redirect("/client/login")
+     }
+   return next()
+   })
+ }
 
 module.exports = Util
