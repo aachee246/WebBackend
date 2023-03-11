@@ -16,9 +16,9 @@ const validate = require('../utilities/inventory-validation')
 // invController.buildByClassification" indicates the the "buildByClassification" function within the "invController" will be used to fulfill the request sent by the route.
 router.get("/type/:classificationId", invController.buildByClassification);
 router.get("/detail/:vehicleId", invController.buildByVehicle);
-router.get("/add-classification-view", invController.buildRegisterClassification);
-router.get("/add-vehicle-view", invController.addNewVehicle);
-router.get("/", invController.buildAddNew); // will go to the managment view
+router.get("/add-classification-view", util.checkClientType, invController.buildRegisterClassification);
+router.get("/add-vehicle-view", util.checkClientType, invController.addNewVehicle);
+router.get("/", util.checkClientType, invController.buildAddNew); // will go to the managment view
 // Process the add classification data
 router.post(
    "/add-classification-view",

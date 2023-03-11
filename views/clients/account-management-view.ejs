@@ -16,5 +16,14 @@
    </ul>
 <% } %>
 
-<p>LOGIN SUCCESS SUCKERS</p>
+<% if ((data.client_type) == 'Client') { %>
+   <h1>Welcome <%= data.client_firstname %> </h1>
+<% } else if ((data.client_type == 'Employee') || (data.client_type == 'Admin')) { %>
+   <h2>Welcome <%= data.client_firstname %> </h2>
+   <h3><a href="/inv">inventory managment (add classification and add vehicle)</a></h3>
+<% } else {
+   res.redirect('/')
+} %>
+
+
 

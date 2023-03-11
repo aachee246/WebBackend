@@ -5,7 +5,13 @@
    </h1>
 
    <div id="tools">
-      <!-- This needs to be changed to include a logout button if the user is logged in. If now, it should show the My Account link.  -->
-      <span class="accountLink"><a href="/client/login">My Account</a></span>
+      <%if (!locals.loggedin) { %>
+         <span class="accountLink"><a href="/client/login">My Account</a></span>
+      <% }else{ %>
+               <!-- TODO: when this link is clicked, it should initiate the logout process and redirect to the home page. -->
+               <span class="accountLink"><a href="/client/logout">Logout</a></span> 
+               <!-- this goes to the server first, then it goes to client becuase it is the first part of the route, which then sends it to the account route. 
+               its all routes now. Get out of the filepaths mindset -->
+      <%}%>
    </div>
 </header>

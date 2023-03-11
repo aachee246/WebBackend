@@ -5,8 +5,10 @@ const accController = require("../controllers/accountController.js");
 const regValidate = require('../utilities/account-validation')
 const logValidate = require('../utilities/account-validation')
 router.get("/login", accController.buildLogin);
-router.get("/", util.checkJWTToken, util.jwtAuth, accController.buildAccountManagement)
 
+router.get("/", 
+util.checkLogin,
+accController.buildAccountManagement)
 
 // Process the login attempt
 router.post(
@@ -16,6 +18,10 @@ router.post(
    accController.loginClient
   )
 
+router.post('/login', (req, res) => {
+    req.session.loggedin = true
+})
+
 // Process the registration data
 router.post(
    "/register",
@@ -24,6 +30,9 @@ router.post(
    accController.registerClient
  )
 
- 
+ router.get (
+  "/logout",
+  accController.logoutClient
+ )
 
 module.exports = router;

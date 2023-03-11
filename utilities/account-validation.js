@@ -114,6 +114,8 @@ validate.loginRules = () => {
          title: "Login",
          nav, 
          client_email,
+         client_firstname, 
+         client_lastname,
       })
       return 
    }

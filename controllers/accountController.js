@@ -112,12 +112,21 @@ async function loginClient(req, res) {
 **************************************** */
 async function buildAccountManagement(req, res, next) {
   let nav = await utilities.getNav()
+  let data = res.locals.clientData // TODO there is no way this is correct
   res.render("./clients/account-management-view", {
      title: "Account Management",
      nav, 
      message: null, 
      errors: null, 
+     data,
   })
 }
+
+async function logoutClient(reg, res) {
+  res.clearCookie("jwt")
+  return res.redirect("/")
+}
+
+// throwError function
  
- module.exports = { buildLogin, buildRegister, registerClient, loginClient, buildAccountManagement }
+ module.exports = { buildLogin, buildRegister, registerClient, loginClient, buildAccountManagement, logoutClient }
