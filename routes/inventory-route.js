@@ -14,24 +14,24 @@ const validate = require('../utilities/inventory-validation')
 // "get" indicates that the route will liste for the get method in the request
 // "/type/:classificationId" the route being watched for (note that the "inv" element of the route is missing, but it will be accounted for later).
 // invController.buildByClassification" indicates the the "buildByClassification" function within the "invController" will be used to fulfill the request sent by the route.
-router.get("/type/:classificationId", invController.buildByClassification);
-router.get("/detail/:vehicleId", invController.buildByVehicle);
-router.get("/add-classification-view", util.checkClientType, invController.buildRegisterClassification);
-router.get("/add-vehicle-view", util.checkClientType, invController.addNewVehicle);
-router.get("/", util.checkClientType, invController.buildAddNew); // will go to the managment view
+router.get("/type/:classificationId", util.handleErrors(invController.buildByClassification));
+router.get("/detail/:vehicleId", util.handleErrors(invController.buildByVehicle));
+router.get("/add-classification-view", util.checkClientType, util.handleErrors(invController.buildRegisterClassification));
+router.get("/add-vehicle-view", util.checkClientType, util.handleErrors(invController.addNewVehicle));
+router.get("/", util.checkClientType, util.handleErrors(invController.buildAddNew)); // will go to the managment view
 // Process the add classification data
 router.post(
    "/add-classification-view",
    validate.newClassificationRules(),
    validate.checkNewClassificationData,
-   invController.registerClassification
+   util.handleErrors(invController.registerClassification)
  )
  // Process the add classification data
 router.post(
    "/add-vehicle-view",
    validate.newVehicleRules(),
    validate.checkNewVehicleData,
-   invController.registerVehicle
+   util.handleErrors(invController.registerVehicle)
  )
 
 module.exports = router;

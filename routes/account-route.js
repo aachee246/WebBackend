@@ -4,18 +4,18 @@ const util = require("../utilities");
 const accController = require("../controllers/accountController.js");
 const regValidate = require('../utilities/account-validation')
 const logValidate = require('../utilities/account-validation')
-router.get("/login", accController.buildLogin);
+router.get("/login", util.handleErrors(accController.buildLogin));
 
 router.get("/", 
 util.checkLogin,
-accController.buildAccountManagement)
+util.handleErrors(accController.buildAccountManagement))
 
 // Process the login attempt
 router.post(
    "/login",
    logValidate.loginRules(),
    logValidate.checkLoginData,
-   accController.loginClient
+   util.handleErrors(accController.loginClient)
   )
 
 router.post('/login', (req, res) => {
@@ -27,12 +27,12 @@ router.post(
    "/register",
    regValidate.registationRules(),
    regValidate.checkRegData,
-   accController.registerClient
+   util.handleErrors(accController.registerClient)
  )
 
  router.get (
   "/logout",
-  accController.logoutClient
+  util.handleErrors(accController.logoutClient)
  )
 
 module.exports = router;
